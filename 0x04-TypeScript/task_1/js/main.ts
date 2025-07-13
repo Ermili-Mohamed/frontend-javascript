@@ -45,3 +45,25 @@ interface printTeacherFunction {
 const printTeacher: printTeacherFunction = ((firstName, lastName) => {
  return `${firstName.charAt(0)}. ${lastName}`
 })
+
+// Writing a class
+
+// Interface for class methods
+interface StudentClassInterface {
+ workOnHomework(): string;
+ displayName(): string;
+}
+
+// Interface for constructor
+interface StudentConstructor {
+ new(firstName: string, lastName: string): StudentClassInterface;
+}
+
+// Class implementing the interface
+class StudentClass implements StudentClassInterface {
+ constructor(private firstName: string, private lastName: string) { }
+
+ workOnHomework = (): string => "Currently working";
+
+ displayName = (): string => this.firstName;
+}
